@@ -13,8 +13,10 @@ code {
 
 :root {
   --primary-color: rgb(124, 93, 250);
+  --primary-color-light: rgb(146, 119, 255);
   --font-color-secondary: rgb(136, 142, 176);
   --light-bg: rgb(248, 248, 251);
+  --checkmark-background: rgb(223, 227, 250);
   --lol: rgb(136, 142, 176);
 }
 
@@ -50,6 +52,11 @@ h5,
   display: flex;
   align-items: center;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-light);
 }
 
 .btn-1 {
