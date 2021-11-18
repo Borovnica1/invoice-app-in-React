@@ -1,0 +1,106 @@
+.invoices__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.invoices__header-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.invoices__filter {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.invoices__filter svg {
+  margin-left: 20px;
+}
+
+.invoice-list {
+  margin-top: 50px;
+}
+
+.invoice-row {
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 15px -20px black;
+}
+
+.invoice-row * {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.invoice-row *:not(:last-child) {
+  width: 20%;
+}
+
+.invoice-row *:nth-child(3) {
+  margin-left: 30px;
+}
+.invoice-row *:nth-child(4) {
+  display: flex;
+  justify-content: flex-end;
+}
+.invoice-row *:nth-child(5) {
+  max-width: 100px;
+  white-space: nowrap;
+}
+.invoice-row *:nth-child(6) {
+  margin-left: 20px;
+}
+
+.invoice-row__btn {
+  text-transform: capitalize;
+  border-radius: 5px;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.invoice-row__btn--paid {
+  background-color: rgb(230, 255, 230);
+  color: rgb(17, 219, 17);
+}
+
+.invoice-row__btn--pending {
+  background-color: rgb(255, 244, 227);
+  color: rgb(255, 179, 37);
+}
+
+.invoice-row__btn--draft {
+  background-color: rgb(233, 233, 233);
+  color: rgb(102, 102, 102);
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.invoice-empty {
+  width: fit-content;
+  margin: auto;
+}
+
+.invoice-empty * {
+  text-align: center;
+}
+
+.invoice-empty *:nth-child(1) {
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+.invoice-empty *:nth-child(2) {
+  margin-bottom: 20px;
+}

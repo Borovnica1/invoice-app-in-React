@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Invoices from './invoices/Invoices';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div className='container'>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Invoices />} />
+        <Route path="invoices" element={<Invoices />} />
+      </Routes>
+    </BrowserRouter>
+  </div>,
   document.getElementById('root')
 );
 
