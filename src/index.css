@@ -4,6 +4,16 @@
   font-family: 'Spartan', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
 }
 
 code {
@@ -17,6 +27,9 @@ code {
   --font-color-secondary: rgb(136, 142, 176);
   --light-bg: rgb(248, 248, 251);
   --checkmark-background: rgb(223, 227, 250);
+  --red-color: rgb(236, 87, 87);
+  --red-color-light: rgb(255, 151, 151);
+  --sidebar-color: rgb(55, 59, 83);
   --lol: rgb(136, 142, 176);
 }
 
@@ -28,6 +41,7 @@ body {
   width: 90%;
   max-width: 800px;
   margin: auto;
+  margin-top: 70px;
 }
 
 h1 {
@@ -44,8 +58,13 @@ h5,
   font-weight: 400;
 }
 
+a {
+  color: initial;
+  text-decoration: none;
+}
+
 .btn {
-  padding: .7rem 1.6rem;
+  padding: .9rem 1.6rem;
   border: none;
   border-radius: 50px;
   color: white;
@@ -62,6 +81,26 @@ h5,
 .btn-1 {
   padding: .5rem .8rem .5rem .5rem;
   background-color: var(--primary-color);
+}
+
+.btn-2 {
+  background-color: var(--primary-color);
+}
+
+
+.btn-3 {
+  background-color: var(--light-bg);
+  color: var(--font-color-secondary);
+}
+.btn-3:hover {
+  background-color: var(--checkmark-background);
+}
+
+.btn-5 {
+  background-color: var(--red-color);
+}
+.btn-5:hover {
+  background-color: var(--red-color-light);
 }
 
 .btn-1__icon {
