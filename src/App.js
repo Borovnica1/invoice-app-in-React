@@ -8,6 +8,7 @@ import Invoices from './invoices/Invoices';
 import Invoice from './invoice/Invoice';
 import { getInvoices } from './data';
 import InvoiceContext from './InvoicesContext';
+import SideBar from './components/SideBar';
 
 function App() {
   const [invoices, setInvoices] = React.useState(getInvoices());
@@ -15,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container">
+        <SideBar />
         <InvoiceContext.Provider value={invoices}>
         <Routes>
             <Route path="/" element={<Invoices invoices={invoices} />} />
