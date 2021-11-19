@@ -10,23 +10,22 @@ import { getInvoices } from './data';
 import InvoiceContext from './InvoicesContext';
 
 function App() {
-  console.log('APP RENDERUJE?');
   const [invoices, setInvoices] = React.useState(getInvoices());
 
   return (
-    <div className="container">
-      <BrowserRouter>
-      <InvoiceContext.Provider value={invoices}>
-      <Routes>
-          <Route path="/" element={<Invoices />} />
-          <Route path="/invoices" element={<Invoices invoices={invoices}/>} />
-          <Route path="/invoice" element={<Invoice />} >
-            <Route path=":invoiceId" />
-          </Route>
-      </Routes>
-      </InvoiceContext.Provider>
+    <BrowserRouter>
+      <div className="container">
+        <InvoiceContext.Provider value={invoices}>
+        <Routes>
+            <Route path="/" element={<Invoices invoices={invoices} />} />
+            <Route path="/invoices" element={<Invoices invoices={invoices} />} />
+            <Route path="/invoice" element={<Invoice />} >
+              <Route path=":invoiceId" />
+            </Route>
+        </Routes>
+        </InvoiceContext.Provider>
+      </div>
     </BrowserRouter>
-  </div>
   );
 }
 
