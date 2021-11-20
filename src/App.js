@@ -20,7 +20,7 @@ function App() {
         <SideBar />
         <InvoiceContext.Provider value={value}>
         <Routes>
-            <Route path="/" element={<Invoices invoices={value} />} />
+            <Route path="/" element={<Invoices invoices={filteredInvoices} />} />
             <Route path="/invoices" element={<Invoices invoices={filteredInvoices} />} />
             <Route path="/invoice" element={<Invoice />} >
               <Route path=":invoiceId" />

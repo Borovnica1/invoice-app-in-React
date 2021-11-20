@@ -8,13 +8,10 @@ function InvoiceContent(props) {
   const invoiceDueDate = props.invoice.paymentDue.split('-');
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-
-  console.log('INVOICE CONTENT INV', props.invoice)
-
   let invoiceItemsTotal = 0;
-  const invoiceItemRows = props.invoice.items.map(el => {
+  const invoiceItemRows = props.invoice.items.map((el, i) => {
     invoiceItemsTotal += el.total;
-    return <InvoiceItemRow item={el} key={el.id} />
+    return <InvoiceItemRow item={el} key={i} />
   });
 
   const moneyTotal = String(invoiceItemsTotal).split('.');
