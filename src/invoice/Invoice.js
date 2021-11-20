@@ -15,9 +15,8 @@ function getInvoice(id, invoices) {
 
 function Invoice() {
   const params = useParams();
-  const value = React.useContext(InvoiceContext);
+  const value = React.useContext(InvoiceContext).invoices;
   const invoice = getInvoice(params.invoiceId, value);
-  console.log('imali sto?', value, invoice)
 
   return (
     <React.Fragment>

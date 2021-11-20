@@ -11,16 +11,17 @@ import InvoiceContext from './InvoicesContext';
 import SideBar from './components/SideBar';
 
 function App() {
-  const [invoices, setInvoices] = React.useState(getInvoices());
-
+  const invoices = getInvoices();
+  const [filteredInvoices, setFilteredInvoices] = React.useState([]);
+  const value = {invoices, filteredInvoices, setFilteredInvoices}
   return (
     <BrowserRouter>
       <div className="container">
         <SideBar />
-        <InvoiceContext.Provider value={invoices}>
+        <InvoiceContext.Provider value={value}>
         <Routes>
-            <Route path="/" element={<Invoices invoices={invoices} />} />
-            <Route path="/invoices" element={<Invoices invoices={invoices} />} />
+            <Route path="/" element={<Invoices invoices={value} />} />
+            <Route path="/invoices" element={<Invoices invoices={filteredInvoices} />} />
             <Route path="/invoice" element={<Invoice />} >
               <Route path=":invoiceId" />
             </Route>
