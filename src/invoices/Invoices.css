@@ -25,7 +25,7 @@
   flex-direction: column;
   
   position: absolute;
-  background-color: white;
+  background-color: var(--invoice-row-color);
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -91,7 +91,7 @@
 }
 
 .invoice-row {
-  background-color: white;
+  background-color: var(--invoice-row-color);
   border-radius: 6px;
   display: flex;
   justify-content: space-around;
@@ -104,6 +104,10 @@
 
 .invoice-row:hover {
   border: 1px solid var(--primary-color);
+}
+
+.invoice-row > button {
+  cursor: pointer;
 }
 
 .invoice-row * {
@@ -142,18 +146,29 @@
 }
 
 .invoice-row__btn--paid {
-  background-color: rgb(230, 255, 230);
-  color: rgb(17, 219, 17);
+  background-color: rgba(103, 255, 103, 0.13);
+  color: rgb(89, 240, 89);
 }
-
 .invoice-row__btn--pending {
-  background-color: rgb(255, 244, 227);
+  background-color: rgba(255, 202, 123, 0.192);
   color: rgb(255, 179, 37);
 }
-
 .invoice-row__btn--draft {
-  background-color: rgb(233, 233, 233);
-  color: rgb(102, 102, 102);
+  background-color: rgba(179, 179, 179, 0.171);
+  color: rgb(88, 88, 88);
+}
+
+.dark-theme .invoice-row__btn--paid {
+  background-color: rgba(0, 182, 0, 0.13);
+  color: rgb(89, 240, 89);
+}
+.dark-theme  .invoice-row__btn--pending {
+  background-color: rgba(206, 123, 0, 0.192);
+  color: rgb(255, 179, 37);
+}
+.dark-theme  .invoice-row__btn--draft {
+  background-color: rgba(129, 129, 129, 0.171);
+  color: rgb(211, 211, 211);
 }
 
 .bold-text {

@@ -29,8 +29,19 @@ code {
   --checkmark-background: rgb(223, 227, 250);
   --red-color: rgb(236, 87, 87);
   --red-color-light: rgb(255, 151, 151);
-  --sidebar-color: rgb(55, 59, 83);
+  --sidebar-color: rgb(37, 41, 69);
+  --invoice-row-color: #fff;
+  --font-color: #000;
+  --invoice-table: rgb(248, 248, 251);
   --lol: rgb(136, 142, 176);
+}
+
+.dark-theme {
+  --light-bg: rgb(20, 22, 37);
+  --invoice-row-color: rgb(30, 33, 57);
+  --font-color: #fff;
+  --invoice-table: rgb(37, 41, 69);
+  --checkmark-background: rgb(20, 22, 37);
 }
 
 body {
@@ -58,6 +69,9 @@ h5,
   font-weight: 400;
 }
 
+h1, h3, h4, h5 {
+  color: var(--font-color);
+}
 a {
   color: initial;
   text-decoration: none;
@@ -94,6 +108,14 @@ a {
 }
 .btn-3:hover {
   background-color: var(--checkmark-background);
+}
+
+.dark-theme .btn-3 {
+  background-color: var(--light-bg);
+  color: rgb(223, 227, 250);
+}
+.dark-theme .btn-3:hover {
+  background-color: #fff;
 }
 
 .btn-5 {
