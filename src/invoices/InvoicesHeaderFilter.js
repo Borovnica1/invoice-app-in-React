@@ -9,20 +9,18 @@ function InvoicesHeaderFilter() {
 
   React.useEffect(() => {
     const filteredInvoices = []
+    console.log('FILTER PROMENJEN', filters)
+    for (let [prop, val] of Object.entries(filters)) {
+      const option = document.querySelector(`.invoices__filter-option--${prop}`);
+      if (val) option.classList.add('invoices__filter-option--active');
+      else option.classList.remove('invoices__filter-option--active');
+    }
 
     for (let invoice of value.invoices) {
-    
       for (let [prop, val] of Object.entries(filters)) {
-        const option = document.querySelector(`.invoices__filter-option--${prop}`);
         if (val) {
-          option.classList.add('invoices__filter-option--active');
           if (invoice.status === prop) filteredInvoices.push(invoice);
-
-
-        } else {
-          option.classList.remove('invoices__filter-option--active');
         }
-
       }
     }
     value.setFilteredInvoices(filteredInvoices);

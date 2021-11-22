@@ -8,8 +8,8 @@ function ActionsBtns(props) {
 
   return (
     <div className="header__action-btns">
-      <EditBtn />
-      <DeleteBtn />
+      <EditBtn>Edit</EditBtn>
+      <DeleteBtn step={1}/>
       <MarkAsBtn />
     </div>
   );

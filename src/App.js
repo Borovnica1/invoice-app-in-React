@@ -7,18 +7,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Invoices from './invoices/Invoices';
 import Invoice from './invoice/Invoice';
 import { getInvoices } from './data';
-import InvoiceContext from './InvoicesContext';
+import InvoicesContext from './InvoicesContext';
 import SideBar from './components/SideBar';
+import Modal from './components/Modal';
 
 function App() {
-  const invoices = getInvoices();
+  const [invoices, setInvoices] = React.useState(getInvoices());;
   const [filteredInvoices, setFilteredInvoices] = React.useState([]);
-  const value = {invoices, filteredInvoices, setFilteredInvoices}
+  const [invoiceSelectedId, setinvoiceSelectedId] = React.useState('undefined');
+  const value = {invoices, setInvoices, filteredInvoices, setFilteredInvoices, invoiceSelectedId, setinvoiceSelectedId}
+
   return (
     <BrowserRouter>
       <div className="container">
+      <InvoicesContext.Provider value={value}>
         <SideBar />
-        <InvoiceContext.Provider value={value}>
+        <Modal />
         <Routes>
             <Route path="/" element={<Invoices invoices={filteredInvoices} />} />
             <Route path="/invoices" element={<Invoices invoices={filteredInvoices} />} />
@@ -26,7 +30,7 @@ function App() {
               <Route path=":invoiceId" />
             </Route>
         </Routes>
-        </InvoiceContext.Provider>
+        </InvoicesContext.Provider>
       </div>
     </BrowserRouter>
   );
