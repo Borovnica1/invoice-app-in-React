@@ -17,7 +17,7 @@ function Invoice() {
   const params = useParams();
   const value = React.useContext(InvoiceContext);
   const invoice = getInvoice(params.invoiceId, value.invoices);
-  value.setinvoiceSelectedId(invoice.id);
+  value.setInvoiceSelected(invoice);
 
   return (
     <React.Fragment>

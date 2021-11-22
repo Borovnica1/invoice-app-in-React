@@ -4,7 +4,6 @@ import GoBack from './GoBack';
 import { formatNumber } from '../invoices/InvoiceRow';
 
 function InvoiceItemRow(props) {
-  console.log('item je', props.item)
 
   return (
     <div className="invoice__table-row">

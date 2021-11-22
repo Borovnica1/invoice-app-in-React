@@ -12,7 +12,7 @@ function DeleteBtn(props) {
     document.querySelector('.modal').classList.add('modal--active');
   }
   const deleteInvoice = function() {
-    const invoiceIndex = value.invoices.findIndex((el) => el.id === value.invoiceSelectedId);
+    const invoiceIndex = value.invoices.findIndex((el) => el.id === value.invoiceSelected.id);
 
     value.invoices.splice(invoiceIndex, 1);
     value.setInvoices(value.invoices);

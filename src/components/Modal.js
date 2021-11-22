@@ -16,7 +16,7 @@ function Modal() {
     <div className="modal" onClick={(e) => closeModal(e)}>
       <div className="box">
         <h2>Confirm Deletion</h2>
-        <h5>Are you sure you want to delete invoice #{value.invoiceSelectedId}? This action cannot be undone.</h5>
+        <h5>Are you sure you want to delete invoice #{value.invoiceSelected.id}? This action cannot be undone.</h5>
         <div className="modal__btns">
           <EditBtn action={'closeModal'}>Cancel</EditBtn>
           <DeleteBtn step={2}/>

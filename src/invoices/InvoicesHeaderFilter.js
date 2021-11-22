@@ -9,7 +9,6 @@ function InvoicesHeaderFilter() {
 
   React.useEffect(() => {
     const filteredInvoices = []
-    console.log('FILTER PROMENJEN', filters)
     for (let [prop, val] of Object.entries(filters)) {
       const option = document.querySelector(`.invoices__filter-option--${prop}`);
       if (val) option.classList.add('invoices__filter-option--active');

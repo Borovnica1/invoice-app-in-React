@@ -14,8 +14,8 @@ import Modal from './components/Modal';
 function App() {
   const [invoices, setInvoices] = React.useState(getInvoices());;
   const [filteredInvoices, setFilteredInvoices] = React.useState([]);
-  const [invoiceSelectedId, setinvoiceSelectedId] = React.useState('undefined');
-  const value = {invoices, setInvoices, filteredInvoices, setFilteredInvoices, invoiceSelectedId, setinvoiceSelectedId}
+  const [invoiceSelected, setInvoiceSelected] = React.useState('undefined');
+  const value = {invoices, setInvoices, filteredInvoices, setFilteredInvoices, invoiceSelected, setInvoiceSelected}
 
   return (
     <BrowserRouter>
