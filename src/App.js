@@ -13,10 +13,14 @@ import Modal from './components/Modal';
 import Form from './components/Form';
 
 function App() {
-  const [invoices, setInvoices] = React.useState(getInvoices());;
+  const [invoices, setInvoices] = React.useState(JSON.parse(localStorage.getItem("data") || "[]").length >= 1 ? JSON.parse(localStorage.getItem("data") || "[]") : getInvoices());;
   const [filteredInvoices, setFilteredInvoices] = React.useState([]);
   const [invoiceSelected, setInvoiceSelected] = React.useState('undefined');
   const value = {invoices, setInvoices, filteredInvoices, setFilteredInvoices, invoiceSelected, setInvoiceSelected}
+
+  React.useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(invoices));
+  }, [invoices])
 
   return (
     <BrowserRouter>
