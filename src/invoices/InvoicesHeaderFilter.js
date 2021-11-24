@@ -36,7 +36,7 @@ function InvoicesHeaderFilter() {
     <div className="invoices__header-filter">
       <div className="invoices__header-title">
         <h1>Invoices</h1>
-        <h5>There are {value.filteredInvoices.length} total invoices</h5>
+        <h5><span className="bonus-text">There are </span>{value.filteredInvoices.length} <span className="bonus-text"> total </span> invoices</h5>
       </div>
       <div className="invoices__filter" onMouseEnter={() => handleHoverFilter(true)} onMouseLeave={() => handleHoverFilter(false)}>
         <h4>Filter by status</h4>

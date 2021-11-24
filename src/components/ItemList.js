@@ -13,7 +13,8 @@ function ItemList(props) {
       top: props.formWrapElHeight,
       behavior: 'smooth'
     });
-    props.setFormWrapElHeight(props.formWrapEl.current.offsetHeight);
+
+    props.setFormWrapElHeight(props.formWrapElHeight+62);
   }, [items])
 
   function onInputchange(event, i, j) {
@@ -30,9 +31,13 @@ function ItemList(props) {
   let itemsRows = [];
   itemsRows = items.map((el, i) => {
     const inputUtils = [['text', 'item-name'],['number', 'qty'],['number', 'price'],['number', 'total']];
+    const labelContent = ['Item Name', 'Qty.', 'Price', 'Total'];
     const inputs = inputUtils.map((util, j) => {
       util.push(el[j]);
-      return <input name="nam" type={util[0]} id={util[1]} value={loaded ? state.id : j == 3 ? Math.round(Number(util[2]) * 100) / 100 : util[2]} onChange={(e) => onInputchange(e, i, j)} placeholder={j == 2 ? 0 : j == 1 ? '0' : ''} readOnly={j == 3 ? true : false} key={j}/>
+      return <div>
+        <label className="bonus-text">{labelContent[j]}</label>
+        <input name="nam" type={util[0]} id={util[1]} value={loaded ? state.id : j == 3 ? Math.round(Number(util[2]) * 100) / 100 : util[2]} onChange={(e) => onInputchange(e, i, j)} placeholder={j == 2 ? 0 : j == 1 ? '0' : ''} readOnly={j == 3 ? true : false} key={j}/>
+      </div>
     })
     return (<div className="item-list__row item-list__row-value" data-id={i} key={i}>
     {inputs}
@@ -40,36 +45,18 @@ function ItemList(props) {
     </div>);
 
   });
-  console.log('RERENDERRRRRR ', itemsRows)
 
 
 
   const addItem = function() {
-    console.log('ADD ITEM')
-    /* const newItems = itemList.filter((el, i) => {
-      const currEl = document.querySelector(`.item-list__row[data-id="${i}"]`);
-      for (let j = 0; j < 4; j++) el[j] = currEl.children[j].value;
-      return el;
-    }) */
-    //setFormWrapElHeight(formWrapEl.current.offsetHeight);
     setItems([...items, ['','','','']]);
   };
 
   const deleteItem = function(object) {
     const itemRow = object.parentElement.parentElement.classList.contains('item-list__row') ? object.parentElement.parentElement : object.parentElement;
     const newItems = items.filter((el, j) => j !== Number(itemRow.dataset.id));
-    /// THIS SETLOADED SOLVED 12H OF DEBUGGGGGGGGG
     setLoaded(false);
     setItems(newItems);
-    console.log('DELETE ITEM', itemRow, items)
-    /*
-    const newItems = itemList.filter((el, i) => {
-      const currEl = document.querySelector(`.item-list__row[data-id="${i}"]`);
-      for (let j = 0; j < 4; j++) el[j] = currEl.children[j].value;
-      if (Number(itemRow.dataset.id) !== i) return el;
-    })
-    console.log('BRISEM', itemRow, newItems)
-    setItemList(newItems); */
   }
 
   return (

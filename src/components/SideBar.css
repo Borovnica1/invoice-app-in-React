@@ -80,3 +80,19 @@
   width: 50%;
   border-radius: 50%;
 }
+
+@media (max-width: 800px) {
+  .sidebar {
+    height: 80px;
+    width: 100%;
+    flex-direction: row;
+    border-radius: 0;
+  }
+
+  .sidebar > *:nth-child(2) {
+    display: flex;
+  }
+  .profile-box {
+    border-left: 1px solid rgba(255, 255, 255, 0.185);
+  }
+}

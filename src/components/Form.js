@@ -15,7 +15,10 @@ function Form(props) {
   const [errorEmptyField, setErrorEmptyField] = React.useState(false);
   const [errorNoItems, setErrorNoItems] = React.useState(false);
 
-
+  React.useEffect(() => {
+    setFormWrapElHeight(90000);
+  }, [])
+  
   React.useEffect(() => {
     if (!errorEmptyField && !errorNoItems) return
     formWrapEl.current.scroll({
@@ -37,7 +40,7 @@ function Form(props) {
     inputsEls.forEach(el => el.parentElement.classList.remove('empty'));
     const itemListRows = document.querySelectorAll('.item-list__row-value');
     itemListRows.forEach((el) => {
-      for (let i = 0; i < 3; i++) el.children[i].classList.remove('empty-cell')
+      for (let i = 0; i < 3; i++) el.children[i].children[1].classList.remove('empty-cell')
     })
   }
 
@@ -55,9 +58,9 @@ function Form(props) {
     if (itemListEl.children.length > 3) {
       const itemListRows = document.querySelectorAll('.item-list__row-value');
       itemListRows.forEach((el) => {
-        for (let i = 0; i < 3; i++) if (el.children[i].value.length == 0)
+        for (let i = 0; i < 3; i++) if (el.children[i].children[1].value.length == 0)
         {
-          el.children[i].classList.add('empty-cell')
+          el.children[i].children[1].classList.add('empty-cell')
           anyEmptyField = true;
         }
       })
@@ -70,7 +73,7 @@ function Form(props) {
     else {
       const itemListRows = document.querySelectorAll('.item-list__row-value');
       itemListRows.forEach((el) => {
-        for (let i = 0; i < 3; i++) if (el.children[i].value.length == 0)  el.children[i].classList.add('empty-cell')
+        for (let i = 0; i < 3; i++) if (el.children[i].children[1].value.length == 0)  el.children[i].children[1].classList.add('empty-cell')
       })
     }
   };
@@ -81,12 +84,12 @@ function Form(props) {
     const itemListRows = document.querySelectorAll('.item-list__row-value');
     let totalAmount = 0;
     const itemsObjectsArr = Array.from(itemListRows).map(row => {
-      totalAmount += Math.round(Number(row.children[3].value)) * 100 / 100;
+      totalAmount += Math.round(Number(row.children[3].children[1].value)) * 100 / 100;
       return {
-        "name": row.children[0].value,
-        "quantity": row.children[1].value,
-        "price": row.children[2].value,
-        "total": row.children[3].value
+        "name": row.children[0].children[1].value,
+        "quantity": row.children[1].children[1].value,
+        "price": row.children[2].children[1].value,
+        "total": row.children[3].children[1].value
       }
     });
 

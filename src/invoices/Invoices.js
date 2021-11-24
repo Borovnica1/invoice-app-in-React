@@ -7,7 +7,6 @@ import Form from '../components/Form';
 
 
 function Invoices(props) {
-  console.log('INVOICESSS')
 
   return (
     <React.Fragment>

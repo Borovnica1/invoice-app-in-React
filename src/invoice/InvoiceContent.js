@@ -71,7 +71,7 @@ function InvoiceContent(props) {
         {invoiceItemRows}
 
         <div className="invoice__table-last-row">
-          <h5>Amount Due</h5> 
+          <h5></h5> 
           <h1>$ {moneyTotal.join('.')}</h1>
         </div>
       </div>
