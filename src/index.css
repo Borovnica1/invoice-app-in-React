@@ -7,6 +7,8 @@
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
+  box-sizing: border-box;
+  caret-color: var(--primary-color);
 
   /*
     Introduced in Internet Explorer 10.
@@ -33,7 +35,10 @@ code {
   --invoice-row-color: #fff;
   --font-color: #000;
   --invoice-table: rgb(248, 248, 251);
-  --lol: rgb(136, 142, 176);
+  --label-color:rgb(126, 136, 195);
+  --input-bg: #fff;
+  --input-border: #DFE3FA;
+  --l: rgb(55, 59, 83);
 }
 
 .dark-theme {
@@ -42,6 +47,9 @@ code {
   --font-color: #fff;
   --invoice-table: rgb(37, 41, 69);
   --checkmark-background: rgb(20, 22, 37);
+  --label-color: rgb(223, 227, 250);
+  --input-bg: rgb(37, 41, 69);
+  --input-border: rgb(30, 33, 57);
 }
 
 body {
@@ -69,13 +77,18 @@ h5,
   font-weight: 400;
 }
 
-h1, h3, h4, h5 {
+h1, h3, h4, h5, h6 {
   color: var(--font-color);
 }
 a {
   color: initial;
   text-decoration: none;
 }
+
+*:focus {
+  outline: none;
+}
+
 
 .btn {
   padding: .9rem 1.6rem;
@@ -101,13 +114,46 @@ a {
   background-color: var(--primary-color);
 }
 
+.btn-save h5 {
+  color: #fff;
+}
 
-.btn-3 {
+.btn-save-draft {
+  background-color: rgb(55, 59, 83);
+  color: var(--font-color-secondary);
+}
+.btn-save-draft:hover {
+  background-color: #000;
+}
+.dark-theme .btn-save-draft:hover {
+  background-color: rgb(30, 33, 57);
+}
+
+.btn-discard h5,
+.btn-save-draft h5 {
+  color: var(--font-color-secondary);
+}
+.dark-theme .btn-save-draft h5 {
+  color: #fff;
+}
+
+.btn-discard:hover {
+  background-color: #DFE3FA;
+}
+
+
+.btn-3, 
+.btn-draft {
   background-color: var(--light-bg);
   color: var(--font-color-secondary);
 }
-.btn-3:hover {
+.btn-3:hover,
+.btn-draft:hover {
   background-color: var(--checkmark-background);
+}
+
+.dark-theme .btn-draft {
+  background-color: #fff;
 }
 
 .dark-theme .btn-3 {
@@ -123,6 +169,26 @@ a {
 }
 .btn-5:hover {
   background-color: var(--red-color-light);
+}
+
+.btn-6 > h4 {
+  color: var(--font-color-secondary);
+  margin-left: 10px;
+}
+
+.btn-6 {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--light-bg);
+}
+.dark-theme .btn-6 {
+  background-color: var(--input-bg);
+}
+.btn-6:hover {
+  background-color: var(--checkmark-background);
 }
 
 .btn-1__icon {

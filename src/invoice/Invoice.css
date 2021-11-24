@@ -116,4 +116,15 @@
 .invoice__table-row *:nth-child(2),
 .invoice__table-row *:nth-child(3) {
   font-weight: bold;
+  color: var(--font-color-secondary)
 }
+
+.invoice__table-row > *:last-child {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.invoice__table-first-row > *{
+  color: var(--font-color-secondary);
+}
+

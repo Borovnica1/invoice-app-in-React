@@ -12,7 +12,7 @@ export function formatNumber(num) {
 };
 
 function InvoiceRow(props) {
-  const date = props.invoice.paymentDue.split('-');
+  const date = props.invoice.paymentDue ? props.invoice.paymentDue.split('-') : ['1', '1', '2020'];
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   return (

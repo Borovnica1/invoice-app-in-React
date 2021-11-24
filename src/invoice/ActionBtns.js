@@ -8,9 +8,9 @@ function ActionsBtns(props) {
 
   return (
     <div className="header__action-btns">
-      <EditBtn>Edit</EditBtn>
+      <EditBtn action={"openEditInvoice"}>Edit</EditBtn>
       <DeleteBtn step={1}/>
-      <MarkAsBtn />
+      <MarkAsBtn status={props.status}/>
     </div>
   );
 };

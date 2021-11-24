@@ -10,7 +10,7 @@ function InvoiceHeader(props) {
         <h5>Status</h5>
         <button className={"invoice-row__btn invoice-row__btn--" + props.invoice.status}>&#9679; {props.invoice.status}</button>
       </div>
-      <ActionBtns />
+      <ActionBtns status={props.invoice.status} />
     </div>
   );
 };

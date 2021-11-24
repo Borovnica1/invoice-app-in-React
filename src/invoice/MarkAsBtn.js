@@ -22,7 +22,7 @@ function MarkAsBtn(props) {
 
   return (
     <button className="btn btn-2" onClick={() => changeStatus()}>
-      Mark as {value.invoiceSelected.status !== 'paid' ? 'Paid' : 'Pending'}
+      Mark as {props.status !== 'paid' ? 'Paid' : 'Pending'}
     </button>
   );
 };

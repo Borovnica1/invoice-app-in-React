@@ -23,7 +23,6 @@
 .invoices__filter-menu {
   display: none;
   flex-direction: column;
-  
   position: absolute;
   background-color: var(--invoice-row-color);
   top: 100%;

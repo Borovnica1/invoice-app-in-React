@@ -10,7 +10,7 @@ function InvoiceItemRow(props) {
       <h4>{props.item.name}</h4>
       <h5>{props.item.quantity}</h5>
       <h5>${formatNumber(props.item.price)}</h5>
-      <h4>${formatNumber(props.item.total)}</h4>
+      <h5>${formatNumber(props.item.total)}</h5>
   </div>
   );
 };

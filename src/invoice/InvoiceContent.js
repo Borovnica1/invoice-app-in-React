@@ -4,13 +4,13 @@ import ActionBtns from './ActionBtns';
 import InvoiceItemRow from './InvoiceItemRow';
 
 function InvoiceContent(props) {
-  const invoiceDate = props.invoice.createdAt.split('-');
-  const invoiceDueDate = props.invoice.paymentDue.split('-');
+  const invoiceDate = props.invoice.createdAt ? props.invoice.createdAt.split('-') : ['1', '1', '2020'];
+  const invoiceDueDate = props.invoice.paymentDue ? props.invoice.paymentDue.split('-') : ['1', '1', '2020'];
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   let invoiceItemsTotal = 0;
   const invoiceItemRows = props.invoice.items.map((el, i) => {
-    invoiceItemsTotal += el.total;
+    invoiceItemsTotal += Math.round(Number(el.total)) * 100 / 100;
     return <InvoiceItemRow item={el} key={i} />
   });
 

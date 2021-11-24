@@ -10,6 +10,7 @@ import { getInvoices } from './data';
 import InvoicesContext from './InvoicesContext';
 import SideBar from './components/SideBar';
 import Modal from './components/Modal';
+import Form from './components/Form';
 
 function App() {
   const [invoices, setInvoices] = React.useState(getInvoices());;
@@ -20,14 +21,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container">
-      <InvoicesContext.Provider value={value}>
+      <InvoicesContext.Provider value={value} >
         <SideBar />
         <Modal />
         <Routes>
             <Route path="/" element={<Invoices invoices={filteredInvoices} />} />
-            <Route path="/invoices" element={<Invoices invoices={filteredInvoices} />} />
-            <Route path="/invoice" element={<Invoice />} >
-              <Route path=":invoiceId" />
+            <Route path="/invoices/*" element={<Invoices invoices={filteredInvoices} />} />
+            <Route path="/invoice" >
+              <Route path=":invoiceId/*" element={<Invoice />} />
             </Route>
         </Routes>
         </InvoicesContext.Provider>
