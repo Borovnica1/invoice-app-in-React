@@ -6,6 +6,7 @@ function InvoicesHeaderFilter() {
   const value = React.useContext(InvoiceContext);
 
   const [filters, setFilters] = React.useState({draft: true, pending: true, paid: true})
+  const [filtersOpened, setFiltersOpened] = React.useState(false)
 
   React.useEffect(() => {
     const filteredInvoices = []
@@ -26,6 +27,15 @@ function InvoicesHeaderFilter() {
 
   }, [filters]);
 
+  function handleClickFilter(el) {
+    if (el.classList.contains('invoices__filter') || el.classList.contains('inv-clickable')) {
+      const filterEl = document.querySelector('.invoices__filter');
+      if (!filtersOpened) filterEl.classList.add('invoices__filter--active');
+      else filterEl.classList.remove('invoices__filter--active');
+      setFiltersOpened(!filtersOpened);
+    }
+  }
+
   function handleHoverFilter(hovering) {
     const filterEl = document.querySelector('.invoices__filter');
     if (hovering) filterEl.classList.add('invoices__filter--active');
@@ -38,9 +48,9 @@ function InvoicesHeaderFilter() {
         <h1>Invoices</h1>
         <h5><span className="bonus-text">There are </span>{value.filteredInvoices.length} <span className="bonus-text"> total </span> invoices</h5>
       </div>
-      <div className="invoices__filter" onMouseEnter={() => handleHoverFilter(true)} onMouseLeave={() => handleHoverFilter(false)}>
-        <h4>Filter by status</h4>
-        <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+      <div className="invoices__filter" onClick={(e) => handleClickFilter(e.target)} onMouseEnter={() => handleHoverFilter(true)} onMouseLeave={() => handleHoverFilter(false)}>
+        <h4 className="inv-clickable">Filter by status</h4>
+        <svg className="inv-clickable" width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path className="inv-clickable" d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
         <div className="invoices__filter-menu" >
           <li className="invoices__filter-option invoices__filter-option--draft" onClick={() => setFilters(prevState => ({...prevState,
             draft: !prevState.draft
