@@ -1,0 +1,46 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.397);
+}
+
+.modal--active {
+  display: block;
+}
+
+.modal .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 90%;
+  background-color: var(--invoice-row-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.modal .box > h2 {
+  margin-bottom: 20px;
+  color: var(--font-color);
+}
+
+.modal .box > h5 {
+  margin-bottom: 20px;
+}
+
+.modal__btns {
+  display: flex;
+  justify-content: end;
+}
+
+.modal__btns *:nth-child(2) {
+  margin-left: 10px;
+}

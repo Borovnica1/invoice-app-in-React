@@ -1,13 +1,228 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: 'Spartan', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+  caret-color: var(--primary-color);
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --primary-color: rgb(124, 93, 250);
+  --primary-color-light: rgb(146, 119, 255);
+  --font-color-secondary: rgb(136, 142, 176);
+  --light-bg: rgb(248, 248, 251);
+  --checkmark-background: rgb(223, 227, 250);
+  --red-color: rgb(236, 87, 87);
+  --red-color-light: rgb(255, 151, 151);
+  --sidebar-color: rgb(37, 41, 69);
+  --invoice-row-color: #fff;
+  --font-color: #000;
+  --invoice-table: rgb(248, 248, 251);
+  --label-color:rgb(126, 136, 195);
+  --input-bg: #fff;
+  --input-border: #DFE3FA;
+  --l: rgb(55, 59, 83);
+}
+
+.dark-theme {
+  --light-bg: rgb(20, 22, 37);
+  --invoice-row-color: rgb(30, 33, 57);
+  --font-color: #fff;
+  --invoice-table: rgb(37, 41, 69);
+  --checkmark-background: rgb(20, 22, 37);
+  --label-color: rgb(223, 227, 250);
+  --input-bg: rgb(37, 41, 69);
+  --input-border: rgb(30, 33, 57);
+}
+
+body {
+  background-color: var(--light-bg);
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 70px;
+  padding-left: 100px;
+  position: relative;
+}
+
+h1 {
+  letter-spacing: -1px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+h5,
+.grayish-text {
+  color: var(--font-color-secondary);
+  font-weight: 400;
+}
+
+h1, h3, h4, h5, h6, label {
+  color: var(--font-color);
+}
+a {
+  color: initial;
+  text-decoration: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+
+.btn {
+  padding: .9rem 1.6rem;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-light);
+}
+
+.btn-1 {
+  padding: .5rem .8rem .5rem .5rem;
+  background-color: var(--primary-color);
+}
+
+.btn-2 {
+  background-color: var(--primary-color);
+}
+
+.btn-save h5 {
+  color: #fff;
+}
+
+.btn-save-draft {
+  background-color: rgb(55, 59, 83);
+  color: var(--font-color-secondary);
+}
+.btn-save-draft:hover {
+  background-color: #000;
+}
+.dark-theme .btn-save-draft:hover {
+  background-color: rgb(30, 33, 57);
+}
+
+.btn-discard h5,
+.btn-save-draft h5 {
+  color: var(--font-color-secondary);
+}
+.dark-theme .btn-save-draft h5 {
+  color: #fff;
+}
+
+.btn-discard:hover {
+  background-color: #DFE3FA;
+}
+
+
+.btn-3, 
+.btn-draft {
+  background-color: var(--light-bg);
+  color: var(--font-color-secondary);
+}
+.btn-3:hover,
+.btn-draft:hover {
+  background-color: var(--checkmark-background);
+}
+
+.dark-theme .btn-draft {
+  background-color: #fff;
+}
+
+.dark-theme .btn-3 {
+  background-color: var(--light-bg);
+  color: rgb(223, 227, 250);
+}
+.dark-theme .btn-3:hover {
+  background-color: #fff;
+}
+
+.btn-5 {
+  background-color: var(--red-color);
+}
+.btn-5:hover {
+  background-color: var(--red-color-light);
+}
+
+.btn-6 > h4 {
+  color: var(--font-color-secondary);
+  margin-left: 10px;
+}
+
+.btn-6 {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--light-bg);
+}
+.dark-theme .btn-6 {
+  background-color: var(--input-bg);
+}
+.btn-6:hover {
+  background-color: var(--checkmark-background);
+}
+
+.btn-1__icon {
+  margin-right: 10px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 50%;
+  position: relative;
+} 
+
+.btn-1__icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@media (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    margin-top: 120px;
+    padding: 0 20px;
+    padding-bottom: 120px;
+  }
+
+  .sidebar {
+    height: 80px;
+    width: 100%;
+  }
 }
